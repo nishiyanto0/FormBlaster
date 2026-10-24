@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "FormBlaster — Google Forms Auto-Responder",
+  "version": "1.0.0",
+  "description": "Paste a Google Form link. It auto-detects every question, generates random plausible answers, and submits the form N times.",
+  "permissions": ["storage", "tabs", "scripting"],
+  "host_permissions": [
+    "https://docs.google.com/*",
+    "https://forms.gle/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "FormBlaster"
+  }
+}

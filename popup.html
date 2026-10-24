@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  :root { color-scheme: dark; }
+  body { width: 320px; margin: 0; padding: 14px; background:#14161a; color:#e8eaed;
+         font: 13px/1.45 system-ui, "Segoe UI", Roboto, sans-serif; }
+  h1 { font-size: 15px; margin: 0 0 10px; letter-spacing:.3px; }
+  h1 span { color:#7dd3a0; }
+  label { display:block; font-size:11px; text-transform:uppercase; letter-spacing:.6px;
+          color:#9aa0a6; margin:10px 0 4px; }
+  input, select { width:100%; box-sizing:border-box; padding:8px 9px; border-radius:7px;
+          border:1px solid #2c313a; background:#1c1f25; color:#e8eaed; font-size:12.5px; }
+  input:focus, select:focus { outline:none; border-color:#4c9a72; }
+  .two { display:flex; gap:8px; }
+  .two > div { flex:1; }
+  button { width:100%; margin-top:14px; padding:10px; border:0; border-radius:8px;
+           background:#2f8f5f; color:#fff; font-weight:600; font-size:13px; cursor:pointer; }
+  button:hover { background:#37a46d; }
+  button:disabled { background:#3a3f47; cursor:default; }
+  .hint { font-size:11px; color:#8b9098; margin-top:9px; line-height:1.5; }
+  .chk { display:flex; align-items:center; gap:7px; margin-top:11px; font-size:12px; color:#c3c7cc; }
+  .chk input { width:auto; }
+  #msg { font-size:11.5px; margin-top:9px; min-height:14px; color:#f0a35e; }
+</style>
+</head>
+<body>
+  <h1>Form<span>Blaster</span></h1>
+
+  <label for="url">Google Form link</label>
+  <input id="url" placeholder="https://docs.google.com/forms/d/e/.../viewform">
+
+  <div class="two">
+    <div>
+      <label for="count">Submissions</label>
+      <input id="count" type="number" min="1" max="500" value="30">
+    </div>
+    <div>
+      <label for="delay">Delay (ms)</label>
+      <input id="delay" type="number" min="200" max="5000" step="100" value="800">
+    </div>
+  </div>
+
+  <label for="mode">Submit mode</label>
+  <select id="mode">
+    <option value="fetch">Fast — hidden fetch, no tabs (recommended)</option>
+    <option value="tab">Faithful — opens a tab per link, then closes it</option>
+  </select>
+
+  <div class="chk">
+    <input id="cookies" type="checkbox">
+    <label for="cookies" style="margin:0;text-transform:none;letter-spacing:0;font-size:12px;">
+      Send my Google cookies (logged-in identity)
+    </label>
+  </div>
+
+  <button id="go">Detect form &amp; blast responses</button>
+  <div id="msg"></div>
+  <div class="hint">
+    Leave cookies <b>off</b> for normal public forms. Turn them <b>on</b> only if the form
+    requires sign-in — but then pair it with a form that allows multiple responses.
+  </div>
+
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>FormBlaster — Runner</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin:0; background:#0f1114; color:#e8eaed;
+         font: 13px/1.5 system-ui, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 28px 22px 60px; }
+  h1 { font-size:19px; margin:0 0 4px; } h1 span { color:#7dd3a0; }
+  .sub { color:#8b9098; font-size:12.5px; margin-bottom:20px; }
+  .card { background:#161a1f; border:1px solid #242932; border-radius:12px; padding:16px 18px; margin-bottom:16px; }
+  .bar { height:8px; background:#232830; border-radius:99px; overflow:hidden; margin:12px 0 8px; }
+  .bar > div { height:100%; width:0%; background:linear-gradient(90deg,#2f8f5f,#7dd3a0); transition:width .25s; }
+  .stats { display:flex; gap:26px; font-size:12.5px; color:#9aa0a6; }
+  .stats b { color:#e8eaed; font-size:15px; }
+  pre { background:#0b0d10; border:1px solid #1e232b; border-radius:10px; padding:12px;
+        max-height:320px; overflow:auto; font:11.5px/1.6 ui-monospace, Menlo, Consolas, monospace;
+        color:#b6bcc4; white-space:pre-wrap; word-break:break-word; margin:0; }
+  .ok { color:#7dd3a0; } .err { color:#f28b82; } .dim { color:#7a8189; } .hi { color:#f0c674; }
+  .row { display:flex; gap:10px; margin-top:16px; flex-wrap:wrap; }
+  button, a.btn { padding:9px 15px; border-radius:8px; border:1px solid #2c313a; background:#1c1f25;
+        color:#e8eaed; font-size:12.5px; cursor:pointer; text-decoration:none; }
+  button:hover, a.btn:hover { border-color:#4c9a72; }
+  button:disabled { opacity:.45; cursor:default; }
+  .q { font-size:12px; color:#9aa0a6; padding:3px 0; }
+  .q b { color:#cfd4da; font-weight:500; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Form<span>Blaster</span> runner</h1>
+  <div class="sub" id="sub">Working…</div>
+
+  <div class="card">
+    <div class="stats">
+      <div>Submitted <b id="done">0</b></div>
+      <div>Target <b id="target">0</b></div>
+      <div>Failed <b id="fail">0</b></div>
+      <div>Status <b id="state">—</b></div>
+    </div>
+    <div class="bar"><div id="fill"></div></div>
+    <div id="formInfo" class="dim" style="font-size:12px;"></div>
+  </div>
+
+  <div class="card">
+    <div style="font-size:12px;text-transform:uppercase;letter-spacing:.7px;color:#9aa0a6;margin-bottom:8px;">
+      Detected questions &amp; entry IDs
+    </div>
+    <pre id="qlist" style="max-height:230px;">—</pre>
+  </div>
+
+  <pre id="log"></pre>
+
+  <div class="row">
+    <button id="copy">Copy all generated URLs</button>
+    <button id="preview">Preview 3 sample responses</button>
+    <a class="btn" id="openForm" target="_blank" rel="noopener" style="display:none;">Open the form to verify</a>
+    <button id="again">Run again</button>
+  </div>
+</div>
+<script src="runner.js"></script>
+</body>
+</html>
